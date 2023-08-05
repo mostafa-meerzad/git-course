@@ -108,3 +108,40 @@ git add .
 add everything
 git dd *
 ```
+
+### Committing Changes
+
+Here is some tips to keep in mind while committing
+
+* Commits should be logically separate
+* Commits should not be too big nor too small
+* Commits are like check-points ( if you screw-up you can revert changes by ease )
+* Commits should be descriptive
+* Don't mix-up commits ( you find a bug and a typo these shouldn't be included in a single commit, make a separate commit for each )
+
+
+## Skipping the staging area
+
+
+untracked files appear under ***untracked file***
+
+staged files appear under ***changes to be committed***
+
+modified files appear under ***changes not staged of commit***
+
+```
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file2.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file3.txt
+
+```
