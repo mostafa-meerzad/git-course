@@ -122,6 +122,57 @@ Here is some tips to keep in mind while committing
 
 ## Skipping the staging area
 
+You can skip the staging-area if you know what are you doing, but doing so is not recommended
+
+```git
+git commit -am "commit message"
+```
+
+## Removing files
+
+If you find out that a file is no longer needed you can remove it.
+
+1. remove a file using standard commands
+   ```
+   rm fileName.ext
+    ```
+
+    ```git
+        On branch main
+    Changes not staged for commit:
+    (use "git add/rm <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+            deleted:    file3.txt
+            modified:   gitTopics.md
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+    ```
+
+    by removing files this way
+    you need to run `git add fileName.ext` to let git know that you removed a file
+
+2. remove a file using git command
+    ```git
+    git rm fileName.ext
+    ```
+    by doing so you don't need to tell git that you removed a file
+
+
+## Renaming or Moving files
+
+to rename a file
+
+1. using standard commands
+   ```
+   mv fileName.ext newName.ext
+   git add newName.ext
+   ```
+2. using git command
+    ```
+    git mv fileName.ext newName.ext
+    ```
+
 
 untracked files appear under ***untracked file***
 
