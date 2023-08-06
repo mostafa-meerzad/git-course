@@ -236,6 +236,9 @@ git diff is usually used to answer two questions:
 1. what have you changed but not yet staged
 2. what have you changed that you are about to commit
 
+`git diff` compares working directory with staging area and shows the difference
+
+`git diff --staged` compares staging area with the last commit and shows the difference
 
 ## Viewing history
 
@@ -320,5 +323,43 @@ if you want to throw everything use `git clean -fd` to remove all directories in
 
 `git log --oneline` show all commit in a compact way in one line
 
-`git log --oneline --stat` to see which files have been changed
+`git log --oneline --stat` shows number of changes made to each file as well as commit information
+
+`git log --patch` shows more detail about files in each commit by showing the difference of those files
+
+## Filtering the history
+
+`git log --oneline -number` shows as number commits
+
+`git log --oneline -3` shows three commits
+
+`git log --online --author="authorName"` commits made by the specified author
+
+`git lone --oneline --before="2023-4-1"` commits made before specified date
+
+`git lone --oneline --after="2023-4-1"`  commits made after specified date
+
+`git log --after="yesterday"`
+
+`git log --after="three days ago"`
+
+`git log --after="one week ago"`
+
+`git log --grep="wordInCommitMessage"` returns commit containing specified word in it's commit message
+
+`git log -S"specified text"` returns commits that introduced or removed **specified text** changes that include the given text
+
+`git log -S"hello world --patch"` shows commits that includes **hello world** in the files and shows the difference
+
+`git log --oneline startId..endId` showing commits between specified range of commits
+
+`git log fileName.ext` shows all commit that touch up provided file
+
+`git log --oneline -- fileName.ext` use **--** to separate the file name form the options
+
+`git log --oneline -- .\gitTopics.md --patch` is not going to work because providing **options** after putting **--** git interprets them as fileName 
+
+`git log --oneline --patch -- .\gitTopics.md ` this is going to work and show the diff of commits containing the specified file
+
+## Customizing the log output
 
