@@ -361,5 +361,89 @@ if you want to throw everything use `git clean -fd` to remove all directories in
 
 `git log --oneline --patch -- .\gitTopics.md ` this is going to work and show the diff of commits containing the specified file
 
-## Customizing the log output
+## Formatting the log output
+
+to customize the `git log` output there are placeholder to use
+
+* %an -> author name
+* %ae -> author email
+* %H -> commit hash
+* %h -> abbreviated commit hash
+* %cn -> committer name
+* %cd -> commit date
+* %s -> commit message
+  
+ `git log --pretty=format:"one or more placeholders"`
+
+ `git log --pretty=format:"%an %h"` to show authorName and the commit hash
+
+you can even colorize the log output
+
+`git log --pretty=format:"%Cgreen %an"` show authorName in green
+
+`git log --pretty=format:"%Cgreen %an %Creset %cd"` show authorName in green and after that rest the output color to default (white)
+
+default supported colors
+
+* %Cred
+* %Cgreen
+* %Cblue
+* %Creset -> reset the color back to default
+
+## Creating aliases
+
+by creating aliases you can run log commands by ease
+
+`git config --global alias.customAlias "log --pretty=format:'%an %h %s'"`
+
+`git config --global alias.customAlias "custom commands"`
+
+`git config --global alias.lg "log --pretty=format:'%an %h %s'"`
+
+from now on you can run `git lg` to get:
+
+* author name
+* commit hash
+* commit message
+
+information about each commit.
+
+## Viewing a commit
+
+`git show commitId` or `git show head~stepsNum` to view a commit
+
+these command show:
+* commit hash
+* author info
+* date info
+* message
+* diff of that commit
+
+you can define the filePath that you are interested in
+
+`git show head~2:testPath/files/test.txt`
+
+and git will show the actual file.
+
+if you want to see the files that hsa been changed in that commit
+
+`git show head~2 --name-only` shows only the names of the files
+
+to see the status of files in a specific commit 
+
+`git show head~2 --name-status`
+
+## Viewing changes across commits
+
+if you need to see which files have been changed between two commit 
+
+`git diff firstCommit secondCommit`  difference of files between two commits
+
+`git diff firstCommit secondCommit --name-only` show only names of the changed files
+
+`git diff firstCommit secondCommit --name-status` show status of the changed files
+
+`git diff firstCommit secondCommit fileName` show difference of the specified file between two commits
+
+## Checking out a commit
 
