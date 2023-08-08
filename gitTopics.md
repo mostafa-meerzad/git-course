@@ -447,3 +447,68 @@ if you need to see which files have been changed between two commit
 
 ## Checking out a commit
 
+you can view the complete snapshot of your project (each file at that point)
+
+`git checkout commitId` reverts working directory back to it's sate stored in that commit
+
+### detached head state
+ you may encounter this situation by **checking out** to a commit or a branch.
+
+Here we have our first commit on the left and the last commit on the right, each commit pointing to it's previous commit, this is how git tracks commits in a project
+
+ ![commits](Screenshot%20(174).png)
+
+All the commits we made so far are part of what is called the **master/ main** branch or the main line of work
+
+the way git represents branches it uses a pointer
+
+![commits](Screenshot%20(175).png)
+
+**master** points to the last commit we have created so far
+
+as we create more commits master gos forward
+
+![commits](Screenshot%20(176).png)
+![commits](Screenshot%20(177).png)
+![commits](Screenshot%20(178).png)
+![commits](Screenshot%20(179).png)
+
+in git we can have multiple branches so git needs to know in which branch we are currently working on, to do this it uses another special pointer called **head**
+
+**head** points to the current branch we are working on
+
+![commits](Screenshot%20(180).png)
+![commits](Screenshot%20(181).png)
+
+When we **checkout** a particular commit head points to that commit 
+
+this situation is called **detached head state**
+
+in this situation **head** is not pointing to a branch anymore it is pointing to a specific commit.
+
+![commits](Screenshot%20(182).png)
+
+![commits](Screenshot%20(182).png)
+![commits](Screenshot%20(182).png)
+![commits](Screenshot%20(182).png)
+
+in this situation we should not create a commit.
+
+only view your code
+
+![commits](Screenshot%20(183).png)
+
+ because at some point we have to attach **head** back to a branch
+
+![commits](Screenshot%20(184).png)
+
+ when we do that the commit made there is not reachable by any other commits (dead commit)
+
+also git removes such commits to save space
+
+![commits](Screenshot%20(185).png)
+
+`git log --all` to show all commits of your repository
+
+## Finding bugs using bisect
+
