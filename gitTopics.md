@@ -512,3 +512,30 @@ also git removes such commits to save space
 
 ## Finding bugs using bisect
 
+## Finding contributors using shortlog
+
+Sometimes we need to see all the people contributing to our repo, here is how to do so
+
+`git shortlog ` showing all contributors with all the commit messages the provided
+
+`git shortlog -n` **-b** sorts contributors based on there number of commits
+
+`git shortlog -s` **-s** shows the commit count with the contributor name
+
+`git shortlog -h` see the git help for more options
+
+`git shortlog -s -n --before="one week ago"` to filter the output
+
+## Viewing the history of a file
+
+`git log fileName.ext` to see all the commits that have touched the specified file
+
+`git log --oneline fileName.ext` for shorter review
+
+`git log --oneline --stat fileName.ext` to see the statistics of all the changes made to the file in each commit
+
+`git log --oneline --patch fileName.ext` to see the **patch** (the actual changes) of the file in each commit
+
+## Restoring a deleted file
+
+`git checkout fileName.ext commitId` to restore a deleted file from another commit that includes it
