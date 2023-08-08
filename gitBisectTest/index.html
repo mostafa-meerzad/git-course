@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Git Bisect</title>
-    <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
     <p class="text">Git is AWESOME</p>
-    <input type="text" class="input" id="BgColor" value="tomato">
-    <button class="btn" id="changeBG">change BG</button>
-</body>
+    <input type="text" class="input" id="BgColor" value="tomato" />
+    <button class="btn" id="changeBG" onclick="ChangeBg()">change BG</button>
+
+    <script>
+      const body = document.querySelector("body");
+      const input = document.getElementById("BgColor");
+
+      function ChangeBg() {
+        body.style.backgroundColor = input.value;
+      }
+
+      input.addEventListener("keydown", (evt) => {
+        if (evt.key === "Enter") {
+          ChangeBg();
+        }
+      });
+    </script>
+  </body>
 </html>
