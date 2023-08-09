@@ -619,3 +619,10 @@ branches allow us to diverge from the main line of work and start working on som
 `git branch branchName` create a new branch called branchName
 
 `git branch` to see all the branches
+
+`git switch branchName` to switch to a branchName
+
+`git branch -m oldName newName` to rename the branch
+
+* convention to name a bug fix branch **login/bugfix** follow this pattern
+
