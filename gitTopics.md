@@ -539,3 +539,13 @@ Sometimes we need to see all the people contributing to our repo, here is how to
 ## Restoring a deleted file
 
 `git checkout fileName.ext commitId` to restore a deleted file from another commit that includes it
+
+## Blaming
+
+`git blame fileName.ext` to basically blame a contributor for the line of code they wrote, it shows **each line of file** and **who wrote** it with **date and time**
+
+`git blame -e fileName.ext` shows emails of authors of each line
+
+`git blame -L startLine, endLine fileName.ext` only shows lines in the specified range
+
+`git blame -h` help for more options
