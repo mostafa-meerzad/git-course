@@ -512,6 +512,28 @@ also git removes such commits to save space
 
 ## Finding bugs using bisect
 
+git bisect is good git tool to find bugs in your project across commits
+
+with **bisect** you need to assign *good* or *bad* to commits in order to find the bug
+
+`git bisect start`  to start the bisect
+
+`git bisect bad` marks the last commit as a bad commit
+
+now you should give git a good commit so it can find the bug
+
+`git bisect good commitId` this commit is assigned as a good commit (no bugs)
+
+now your working directory is restored to a commit in the middle of bad and good commits
+
+`git bisect good` by running this git knows that the middle commit which head is attached to it now is a good commit (no bug)
+
+`git bisect bad` if the bug is present in the project
+
+at the end run
+
+`git bisect reset` the attach head back to master (the last commit)
+
 ## Finding contributors using shortlog
 
 Sometimes we need to see all the people contributing to our repo, here is how to do so
@@ -549,3 +571,51 @@ Sometimes we need to see all the people contributing to our repo, here is how to
 `git blame -L startLine, endLine fileName.ext` only shows lines in the specified range
 
 `git blame -h` help for more options
+
+## Tagging
+
+if you need to bookmark a certain commit in the history of project like a commit that represents a certain version of the project
+
+`git tag tagItself commitId` to tag a commit
+
+`git tag v1.0` tags the last commit
+
+`git tag v0.5 20bcd` tags the last commit
+
+you can reference a commit by it's tag too
+
+`git checkout v1.0`
+
+`git tag` to see all the tags we created
+
+* light weight tag -> just a simple tag
+* annotated tag -> a complete object with several properties
+
+`git tag -a tagItself -m "a message" commitId` create an annotated tag
+
+`git tag -n` to show tag messages or commit messages
+
+`git show tagName` shows the tag information (annotated tag)
+* tagger
+* date of creation
+* tag message 
+
+`git tag -d tagName` to delete a tag
+
+## Branching
+
+## What are branches
+
+![branches](Screenshot%20(187).png)
+
+branches allow us to diverge from the main line of work and start working on something else in isolation
+
+* keep main line as stable as possible
+* make a new branch for every new feature, when done merge those branches
+* each branch is isolated form the others
+
+## Working with branches
+
+`git branch branchName` create a new branch called branchName
+
+`git branch` to see all the branches
