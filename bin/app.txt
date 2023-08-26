@@ -1,4 +1,0 @@
-some logs from the compilation of the app
-new line added here
-
-complete new compilation of app

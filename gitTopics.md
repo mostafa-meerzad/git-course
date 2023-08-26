@@ -45,13 +45,13 @@ If You need help for a git command run the command bellow
 git commandName --help
 ```
 
-or
+or for short details
 
 ```git
 git commandName -h
 ```
 
-These commands show a short information about the command
+These commands show information about the command
 
 ## Initializing A Repository
 
@@ -115,7 +115,7 @@ Here is some tips to keep in mind while committing
 
 * Commits should be logically separate
 * Commits should not be too big nor too small
-* Commits are like check-points ( if you screw-up you can revert changes by ease )
+* Commits are like check-points ( if you screw something you can revert changes by ease )
 * Commits should be descriptive
 * Don't mix-up commits ( you find a bug and a typo these shouldn't be included in a single commit, make a separate commit for each )
 
@@ -219,6 +219,10 @@ Untracked files:
 * files end with a extension
 * patterns can be used
 
+files/directories are not going to be ignored if you add them to **gitignore** file, after they are tracked by git. 
+
+
+
 ## Git status
 
 `git status`
@@ -314,7 +318,9 @@ if you want to throw everything use `git clean -fd` to remove all directories in
 ## Restoring a file to a pervious version
 
 `git restore --source=commitId fileName`
+
 `git restore --source=head fileName`
+
 `git restore --source=head~stepNum fileName`
 
 ## Viewing history 
