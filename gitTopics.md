@@ -6,30 +6,30 @@ A VCS is a software that tracks project changes, stores them in a repository and
 
 There are two types of VCS
 
-* Centralized
-* Distributed
+- Centralized
+- Distributed
 
 You can use Git in two ways
 
-* using terminal
-* using GUI tools
+- using terminal
+- using GUI tools
 
 ## Configuring git
 
 First of all we need to configure git by setting
 
-* User Name
-* User Email
-* Default Editor
-* Line Ending
+- User Name
+- User Email
+- Default Editor
+- Line Ending
 
 There are three levels for configuration
 
-* System -> all users
-* Global -> current user
-* Local -> current repository
+- System -> all users
+- Global -> current user
+- Local -> current repository
 
-``` git
+```git
 git config --global user.name userName
 git config --global user.email userEmail
 git config --global core.editor "code --wait" "VScode as default editor"
@@ -66,23 +66,23 @@ It initializes an empty repository
 ## Git Workflow
 
 As in your daily basis, you work on some tasks
-![working on a task](./Screenshot%20(159).png)
+![working on a task](<./Screenshot%20(159).png>)
 
 when it is done you commit those changes, committing it is like creating a snapshot
 
-![task done](Screenshot%20(160).png)
+![task done](<Screenshot%20(160).png>)
 
 in git there is an extra stage called staging-area
 
-![staging area](Screenshot%20(161).png)
+![staging area](<Screenshot%20(161).png>)
 
 Here we decide which changes go with the same commit
 
-![commit changes](Screenshot%20(162).png)
+![commit changes](<Screenshot%20(162).png>)
 
 by committing changes are permanently stored in git repository
 
-![commit changes](Screenshot%20(163).png)
+![commit changes](<Screenshot%20(163).png>)
 
 note:
 
@@ -113,12 +113,11 @@ git dd *
 
 Here is some tips to keep in mind while committing
 
-* Commits should be logically separate
-* Commits should not be too big nor too small
-* Commits are like check-points ( if you screw something you can revert changes by ease )
-* Commits should be descriptive
-* Don't mix-up commits ( you find a bug and a typo these shouldn't be included in a single commit, make a separate commit for each )
-
+- Commits should be logically separate
+- Commits should not be too big nor too small
+- Commits are like check-points ( if you screw something you can revert changes by ease )
+- Commits should be descriptive
+- Don't mix-up commits ( you find a bug and a typo these shouldn't be included in a single commit, make a separate commit for each )
 
 ## Skipping the staging area
 
@@ -133,37 +132,38 @@ git commit -am "commit message"
 If you find out that a file is no longer needed you can remove it.
 
 1. remove a file using standard commands
+
    ```
    rm fileName.ext
-    ```
+   ```
 
-    ```git
-        On branch main
-    Changes not staged for commit:
-    (use "git add/rm <file>..." to update what will be committed)
-    (use "git restore <file>..." to discard changes in working directory)
-            deleted:    file3.txt
-            modified:   gitTopics.md
+   ```git
+       On branch main
+   Changes not staged for commit:
+   (use "git add/rm <file>..." to update what will be committed)
+   (use "git restore <file>..." to discard changes in working directory)
+           deleted:    file3.txt
+           modified:   gitTopics.md
 
-    no changes added to commit (use "git add" and/or "git commit -a")
+   no changes added to commit (use "git add" and/or "git commit -a")
 
-    ```
+   ```
 
-    by removing files this way
-    you need to run `git add fileName.ext` to let git know that you removed a file
+   by removing files this way
+   you need to run `git add fileName.ext` to let git know that you removed a file
 
 2. remove a file using git command
-    ```git
-    git rm fileName.ext
-    ```
-    by doing so you don't need to tell git that you removed a file
-
+   ```git
+   git rm fileName.ext
+   ```
+   by doing so you don't need to tell git that you removed a file
 
 ## Renaming or Moving files
 
 to rename a file
 
 1. using standard commands
+
    ```
    mv fileName.ext newName.ext
    ```
@@ -179,19 +179,20 @@ to rename a file
             file11.txt
 
     no changes added to commit (use "git add" and/or "git commit -a")
-    ```
-    now you need to run `git add newName.ext`
+   ```
+
+   now you need to run `git add newName.ext`
 
 2. using git command
-    ```
-    git mv fileName.ext newName.ext
-    ```
+   ```
+   git mv fileName.ext newName.ext
+   ```
 
-untracked files appear under ***untracked file***
+untracked files appear under **_untracked file_**
 
-staged files appear under ***changes to be committed***
+staged files appear under **_changes to be committed_**
 
-modified files appear under ***changes not staged of commit***
+modified files appear under **_changes not staged of commit_**
 
 ```git
 
@@ -215,13 +216,15 @@ Untracked files:
 
 .gitignore file is a special file that git ignores files of which paths are added to it.
 
-* directories end with a /
-* files end with a extension
-* patterns can be used
+- directories end with a /
+- files end with a extension
+- patterns can be used
 
-files/directories are not going to be ignored if you add them to **gitignore** file, after they are tracked by git. 
+files/directories are not going to be ignored if you add them to **gitignore** file, after they are tracked by git.
 
+first remove them from the staging-area by running `git rm --cached fileName` for single file or `git rm --cached -r directoryName` for a directory.
 
+then commit after that as git recommends itself to tell git that you no longer need to keep track of that file.
 
 ## Git status
 
@@ -254,13 +257,13 @@ each commit includes
 2. author info
 3. date of commit
 4. commit message
-   
+
 some useful options of `git log`
 
-* --online -> shows a compact version of commits
-  * id
-  * message
-* --reverse -> reverses the default order or showing commit (oldest to newest)
+- --online -> shows a compact version of commits
+  - id
+  - message
+- --reverse -> reverses the default order or showing commit (oldest to newest)
 
 ## Viewing a commit
 
@@ -274,12 +277,12 @@ Two ways to reference a commit
 
 `git show ` command shows only diff of the specified commit.
 
-If you want to see all the files and directories in a commit 
+If you want to see all the files and directories in a commit
 use
 
 `git ls-tree yourDesiredCommit`
 
-like 
+like
 
 `git ls-tree head` which shows all files and directories in the last commit
 
@@ -312,7 +315,12 @@ if you want to remove all local changes and start everything from scratch run
 
 `restore` command can be used to restore all changes to their previous versions saved in the last commit.
 
-if you want to throw everything use `git clean -fd` to remove all directories in the project directory 
+`git restore .` doesn't restore untracked files to their previous versions.
+
+the following does
+
+if you want to throw everything use `git clean -fd` to remove all directories in the project directory
+
 > it is a dangerous command to use because there is no way to recover removed files
 
 ## Restoring a file to a pervious version
@@ -323,7 +331,7 @@ if you want to throw everything use `git clean -fd` to remove all directories in
 
 `git restore --source=head~stepNum fileName`
 
-## Viewing history 
+## Viewing history
 
 `git log` to show all commits
 
@@ -341,9 +349,9 @@ if you want to throw everything use `git clean -fd` to remove all directories in
 
 `git log --online --author="authorName"` commits made by the specified author
 
-`git lone --oneline --before="2023-4-1"` commits made before specified date
+`git log --oneline --before="2023-4-1"` commits made before specified date
 
-`git lone --oneline --after="2023-4-1"`  commits made after specified date
+`git log --oneline --after="2023-4-1"` commits made after specified date
 
 `git log --after="yesterday"`
 
@@ -355,7 +363,7 @@ if you want to throw everything use `git clean -fd` to remove all directories in
 
 `git log -S"specified text"` returns commits that introduced or removed **specified text** changes that include the given text
 
-`git log -S"hello world --patch"` shows commits that includes **hello world** in the files and shows the difference
+`git log -S"hello world" --patch` shows commits that includes **hello world** in the files and shows the difference
 
 `git log --oneline startId..endId` showing commits between specified range of commits
 
@@ -363,7 +371,7 @@ if you want to throw everything use `git clean -fd` to remove all directories in
 
 `git log --oneline -- fileName.ext` use **--** to separate the file name form the options
 
-`git log --oneline -- .\gitTopics.md --patch` is not going to work because providing **options** after putting **--** git interprets them as fileName 
+`git log --oneline -- .\gitTopics.md --patch` is not going to work because providing **options** after putting **--** git interprets them as fileName
 
 `git log --oneline --patch -- .\gitTopics.md ` this is going to work and show the diff of commits containing the specified file
 
@@ -371,17 +379,17 @@ if you want to throw everything use `git clean -fd` to remove all directories in
 
 to customize the `git log` output there are placeholder to use
 
-* %an -> author name
-* %ae -> author email
-* %H -> commit hash
-* %h -> abbreviated commit hash
-* %cn -> committer name
-* %cd -> commit date
-* %s -> commit message
-  
- `git log --pretty=format:"one or more placeholders"`
+- %an -> author name
+- %ae -> author email
+- %H -> commit hash
+- %h -> abbreviated commit hash
+- %cn -> committer name
+- %cd -> commit date
+- %s -> commit message
 
- `git log --pretty=format:"%an %h"` to show authorName and the commit hash
+`git log --pretty=format:"one or more placeholders"`
+
+`git log --pretty=format:"%an %h"` to show authorName and the commit hash
 
 you can even colorize the log output
 
@@ -391,14 +399,14 @@ you can even colorize the log output
 
 default supported colors
 
-* %Cred
-* %Cgreen
-* %Cblue
-* %Creset -> reset the color back to default
+- %Cred
+- %Cgreen
+- %Cblue
+- %Creset -> reset the color back to default
 
 ## Creating aliases
 
-by creating aliases you can run log commands by ease
+by creating aliases you can run long commands by ease
 
 `git config --global alias.customAlias "log --pretty=format:'%an %h %s'"`
 
@@ -408,9 +416,9 @@ by creating aliases you can run log commands by ease
 
 from now on you can run `git lg` to get:
 
-* author name
-* commit hash
-* commit message
+- author name
+- commit hash
+- commit message
 
 information about each commit.
 
@@ -419,11 +427,12 @@ information about each commit.
 `git show commitId` or `git show head~stepsNum` to view a commit
 
 these command show:
-* commit hash
-* author info
-* date info
-* message
-* diff of that commit
+
+- commit hash
+- author info
+- date info
+- message
+- diff of that commit
 
 you can define the filePath that you are interested in
 
@@ -435,15 +444,15 @@ if you want to see the files that hsa been changed in that commit
 
 `git show head~2 --name-only` shows only the names of the files
 
-to see the status of files in a specific commit 
+to see the status of files in a specific commit
 
 `git show head~2 --name-status`
 
 ## Viewing changes across commits
 
-if you need to see which files have been changed between two commit 
+if you need to see which files have been changed between two commit
 
-`git diff firstCommit secondCommit`  difference of files between two commits
+`git diff firstCommit secondCommit` difference of files between two commits
 
 `git diff firstCommit secondCommit --name-only` show only names of the changed files
 
@@ -458,61 +467,62 @@ you can view the complete snapshot of your project (each file at that point)
 `git checkout commitId` reverts working directory back to it's sate stored in that commit
 
 ### detached head state
- you may encounter this situation by **checking out** to a commit or a branch.
+
+you may encounter this situation by **checking out** to a commit or a branch.
 
 Here we have our first commit on the left and the last commit on the right, each commit pointing to it's previous commit, this is how git tracks commits in a project
 
- ![commits](Screenshot%20(174).png)
+![commits](<Screenshot%20(174).png>)
 
 All the commits we made so far are part of what is called the **master/ main** branch or the main line of work
 
 the way git represents branches it uses a pointer
 
-![commits](Screenshot%20(175).png)
+![commits](<Screenshot%20(175).png>)
 
 **master** points to the last commit we have created so far
 
 as we create more commits master gos forward
 
-![commits](Screenshot%20(176).png)
-![commits](Screenshot%20(177).png)
-![commits](Screenshot%20(178).png)
-![commits](Screenshot%20(179).png)
+![commits](<Screenshot%20(176).png>)
+![commits](<Screenshot%20(177).png>)
+![commits](<Screenshot%20(178).png>)
+![commits](<Screenshot%20(179).png>)
 
 in git we can have multiple branches so git needs to know in which branch we are currently working on, to do this it uses another special pointer called **head**
 
 **head** points to the current branch we are working on
 
-![commits](Screenshot%20(180).png)
-![commits](Screenshot%20(181).png)
+![commits](<Screenshot%20(180).png>)
+![commits](<Screenshot%20(181).png>)
 
-When we **checkout** a particular commit head points to that commit 
+When we **checkout** a particular commit head points to that commit
 
 this situation is called **detached head state**
 
 in this situation **head** is not pointing to a branch anymore it is pointing to a specific commit.
 
-![commits](Screenshot%20(182).png)
+![commits](<Screenshot%20(182).png>)
 
-![commits](Screenshot%20(182).png)
-![commits](Screenshot%20(182).png)
-![commits](Screenshot%20(182).png)
+![commits](<Screenshot%20(182).png>)
+![commits](<Screenshot%20(182).png>)
+![commits](<Screenshot%20(182).png>)
 
 in this situation we should not create a commit.
 
 only view your code
 
-![commits](Screenshot%20(183).png)
+![commits](<Screenshot%20(183).png>)
 
- because at some point we have to attach **head** back to a branch
+because at some point we have to attach **head** back to a branch
 
-![commits](Screenshot%20(184).png)
+![commits](<Screenshot%20(184).png>)
 
- when we do that the commit made there is not reachable by any other commits (dead commit)
+when we do that the commit made there is not reachable by any other commits (dead commit)
 
 also git removes such commits to save space
 
-![commits](Screenshot%20(185).png)
+![commits](<Screenshot%20(185).png>)
 
 `git log --all` to show all commits of your repository
 
@@ -520,9 +530,9 @@ also git removes such commits to save space
 
 git bisect is good git tool to find bugs in your project across commits
 
-with **bisect** you need to assign *good* or *bad* to commits in order to find the bug
+with **bisect** you need to assign _good_ or _bad_ to commits in order to find the bug
 
-`git bisect start`  to start the bisect
+`git bisect start` to start the bisect
 
 `git bisect bad` marks the last commit as a bad commit
 
@@ -594,17 +604,18 @@ you can reference a commit by it's tag too
 
 `git tag` to see all the tags we created
 
-* light weight tag -> just a simple tag
-* annotated tag -> a complete object with several properties
+- light weight tag -> just a simple tag
+- annotated tag -> a complete object with several properties
 
 `git tag -a tagItself -m "a message" commitId` create an annotated tag
 
 `git tag -n` to show tag messages or commit messages
 
 `git show tagName` shows the tag information (annotated tag)
-* tagger
-* date of creation
-* tag message 
+
+- tagger
+- date of creation
+- tag message
 
 `git tag -d tagName` to delete a tag
 
@@ -612,13 +623,13 @@ you can reference a commit by it's tag too
 
 ## What are branches
 
-![branches](Screenshot%20(187).png)
+![branches](<Screenshot%20(187).png>)
 
 branches allow us to diverge from the main line of work and start working on something else in isolation
 
-* keep main line as stable as possible
-* make a new branch for every new feature, when done merge those branches
-* each branch is isolated form the others
+- keep main line as stable as possible
+- make a new branch for every new feature, when done merge those branches
+- each branch is isolated form the others
 
 ## Working with branches
 
@@ -628,7 +639,182 @@ branches allow us to diverge from the main line of work and start working on som
 
 `git switch branchName` to switch to a branchName
 
+`git switch -C newBranch` create and switch to newBranch
+
 `git branch -m oldName newName` to rename the branch
 
-* convention to name a bug fix branch **login/bugfix** follow this pattern
+> convention to name a bug fix branch **login/bugfix** follow this pattern
 
+- bugfix/signUp
+- bugfix/newFeature
+
+you may want to delete branches after merging them to the main branch
+
+`git branch -d branchName` to remove the specified branch
+
+`git diff firstBranch secondBranch` compares two branches and shows the difference of files in them
+
+`git diff firstBranch secondBranch --name-only` shows the file names that are different between two branches
+
+`git diff firstBranch secondBranch --name-status` shows the files name and status that are different between two branches and will be effected
+
+### Stashing
+
+stashing a file means to store it somewhere save to avoid losing it.
+
+when you switch branches and are not done with the changes `git` will warn you that your changes in the current branch which are not committed yet will be overwritten
+
+`git stash push -m "stash message"` stashes working directory and staging area, newly untracked files are not included in stash by default
+
+`git stash -a -m "message"` to stash all files including the untracked files
+
+`git stash list` to list all your stashed modifications
+
+`git stash show` to inspect stashed modifications
+
+`git stash show 0` to inspect stashed modifications in the latest stash by providing `stash index` 0 is the latest, 1 is the one before the last stash
+
+`git stash apply stashIndex` to apply that specified stash
+
+`git stash drop stashIndex` to remove that one specified stash
+
+`git stash clear` to clear all the stashes
+
+## Merging
+
+merging is all about bringing changes from one branch to another
+
+1. one way merge, if branches have not diverged
+2. thee way merge, if branches have diverged
+   
+`git merge branchName` to merge target branch in to current branch
+
+`git merge --no-ff branchName` merge target branch to current branch and make a merge commit even if fast-forward merge is possible
+
+`git config ff no` to disable fast-forward merging in the current repository
+
+`git config --global ff no` to disable ff for the current user
+
+* if there is a direct linear path from one branch to another branch they are not diverged and can be merged by a ff merge
+
+### Viewing merged branches
+
+typically after merging a branch to main branch you want to remove that branch to avoid future confusions
+
+`git branch --merged` to list all merged branches
+
+`git branch -d branchName` to remove the specified branch
+
+`git branch --no-merged` to list all unmerged branches
+
+
+### merge conflicts
+
+* if the same line is changed in more than one branch
+* changed in one branch but deleted in another branch
+* same file is added in two branches with different content
+
+when merge conflict occurs by running `git status` under `unmerged paths` you can find all the files that caused the conflict and need to be addressed
+
+> if you introduce new changes in the conflicted file while resolving the conflicts and commit it
+> it is referred as evil-commit because these changes are not introduce anywhere in the history
+
+### aborting merge
+
+`git merge --abort` to cancel the merge process for whatever reason if you are not ready to handle the conflicts, all resolved conflicts will be gone and the repository is back to the state before starting the merge
+
+### undoing a faulty merge
+
+if you merge and find out the the app is not working in this kind of situation you need to undo the merge
+
+* removing the merge commit > rewriting the history as if it has never happened
+
+`git reset --hard head~1`
+
+when resetting the `head` pointer there is three options
+
+1. soft
+2. mixed
+3. hard
+
+#### soft
+
+ `git reset --soft head~1`
+ git is going to have the `head` pointer pointing to a different (specified) snapshot.
+ in this case the `staging-area` and the `working-directory` is not going to change
+
+#### mixed
+
+ `git reset --mixed head~1`
+ git is going to have the `head` pointer pointing to a different (specified) snapshot.
+ in this case the `staging-area` will look like what it looks like in that `snapshot`, but the `working-directory` is not going to change
+
+
+#### hard
+
+ `git reset --hard head~1`
+ git is going to have the `head` pointer pointing to a different (specified) snapshot.
+ and `staging-area` as will as the  `working-directory` will be like in that snapshot
+
+---
+* revert the merge > make another commit which will cancel all the changes in this commit
+
+`git revert -m 1 head` -m is the parent-number, 1 means the first parent, head is the last commit.
+
+parent is the branch in which this commit is made.
+
+### squash merge
+
+if you have a branch that has no good history, it's commits are too fine-grain or doesn't represent a logical chain set and you don't want this branch to become part of the history of the main branch, `squash merge` can be helpful to combine commits of that branch and make a new commit with a better representation of history and apply it on top of main branch
+
+and you can delete that branch with bad history
+
+> **squash merge** is not a merge commit. it is just a regular commit added on top of (ex, main) branch
+
+*merging bugfix to main*
+
+1. `git switch main` switch to main
+2. `git merge --squash bugfix` create a squash merge
+3. `git commit -m "the message of merge"` now all those changes are in the staging area and we need to make a commit 
+
+git is not taking the squash-merge as a regular 
+merge, even though we combined all the changes in 
+bugfix branch git still is going to list this bugfix
+ branch under the `unmerged branches`, to avoid
+ future confusion remove the bugfix branch after
+ squash merging.
+
+### rebasing
+
+rebasing is a way of bringing changes from one branch to another branch. it will result a linear commit history just like `three-way` merge.
+
+with this technic you can change the base of a branch (where the branch is diverging)
+
+1. switch to the branch you want to rebase
+2. `git rebase targetBranch` rebase the current branch to `targetBranch`
+3. merge the newly added commits.
+
+if there is a conflict resolve it as normal
+then run the following commands
+
+* `git rebase --continue` to add next commit on top of main-branch
+* `git rebase --skip` to skip the current commit and move on to the next commit
+* `git rebase --abort` to cancel the rebase operation
+
+### cherry picking
+
+if there is some changes in another branch and you want to have it in the main branch but you are also not ready to merge these branches you can cherry-pick those changes to the main branch
+
+first switch to the branch that you want to add a feature from another branch to it.
+
+then run the following commands
+
+`git cherry-pick commitID` 
+
+if there is any conflict resolve it and make a commit 
+
+`git commit` let git open the default editor and you may accept the default message or write your own
+
+### picking a particular file from another branch
+
+`git restore --source=BranchName fileName` git is going to restore specified file(s) to the working directory from the latest version of the file in the specified branch
